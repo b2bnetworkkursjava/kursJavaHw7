@@ -1,4 +1,4 @@
-package com.b2b.net.hw6;
+package com.b2b.net.hw7;
 
 import static org.junit.Assert.assertTrue;
 
