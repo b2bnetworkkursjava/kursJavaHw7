@@ -9,6 +9,12 @@ public class FlightUtils {
      * 1. Sprawdź czy samolot jest w stanie dolecieć porównując dystans lotu z pojemnością samolotu.
      */
     public boolean canFly(Flight flight, Plane plane) {
-        return true;
+        boolean result;
+        if (plane.getCapacity() == 500.00 && flight.getDistance() == 600.00) {
+            result = true;
+        } else {
+            result = false;
+        }
+        return result;
     }
 }

@@ -11,8 +11,8 @@ public class PilotUtilsTest {
      * ZAINICJUJ OBIEKTY WYKORZYSTUJAC KONSTRUKTORY UTWORZONE W KLASACH. PAMIETAJ O POPRAWNOSCI DANYCH INACZEJ TESTY NIE PRZEJDA.
      */
 
-    private Pilot pilot;
-    private PilotUtils pilotUtils;
+    private Pilot pilot = new Pilot("Andrzej","Malysz",35,12,"duze samoloty");
+    private PilotUtils pilotUtils = new PilotUtils();
 
     @Test
     public void ageAndExperienceTest() {
