@@ -8,7 +8,11 @@ public class PilotUtils {
      * 1. Uzupełnij metodę tak, aby sprawdzała czy pilot nie jest starszy niż doświadczenie, które posiada.
      */
     public boolean ageAndExperience(Pilot pilot) {
-        return true;
+        boolean result = false;
+        if (pilot.getAge() > pilot.getExperience()) {
+            result = true;
+        }
+        return result;
     }
 
     /**
@@ -19,6 +23,14 @@ public class PilotUtils {
      * - senior exp > 10;
      */
     public boolean checkPermissions(Pilot pilot) {
-        return true;
+        boolean result = false;
+        if (pilot.getExperience() <= 5 && pilot.getPermissions().equals("junior")) {
+            result = true;
+        } else if (pilot.getExperience() > 5 && pilot.getExperience() <= 10 && pilot.getPermissions().equals("mid")) {
+            result = true;
+        } else if (pilot.getExperience() > 10 && pilot.getPermissions().equals("senior")) {
+            result = true;
+        }
+        return result;
     }
 }
