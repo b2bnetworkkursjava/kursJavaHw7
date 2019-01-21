@@ -12,9 +12,9 @@ public class PassengerUtilsTest {
      * ZAINICJUJ OBIEKTY WYKORZYSTUJAC KONSTRUKTORY UTWORZONE W KLASACH. PAMIETAJ O POPRAWNOSCI DANYCH INACZEJ TESTY NIE PRZEJDA.
      */
 
-    private Passenger passenger;
-    private Ticket ticket;
-    private PassengerUtils passengerUtils;
+    private Ticket ticket= new Ticket(1, 150, "eko", 30,12, true);
+    private Passenger passenger= new Passenger("Jan", "Kowal", 25, ticket, 4, true);
+    private PassengerUtils passengerUtils= new PassengerUtils();
 
     @Test
     public void checkDiscountTest() {
