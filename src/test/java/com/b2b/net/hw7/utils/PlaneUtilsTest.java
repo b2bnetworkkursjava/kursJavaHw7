@@ -12,11 +12,10 @@ public class PlaneUtilsTest {
     /**
      * ZAINICJUJ OBIEKTY WYKORZYSTUJAC KONSTRUKTORY UTWORZONE W KLASACH. PAMIETAJ O POPRAWNOSCI DANYCH INACZEJ TESTY NIE PRZEJDA.
      */
-
-    private Plane plane;
-    private Pilot pilot;
-    private Ticket ticket;
-    private PlaneUtils planeUtils;
+    private Pilot pilot = new Pilot("Jan", "Kowalski", 25, 4, "junior");
+    private Plane plane = new Plane(1,"Boeing 737", 190,"small",pilot, 150);
+    private Ticket ticket = new Ticket(2,121, "hight", 30.0, 5, true);
+    private PlaneUtils planeUtils = new PlaneUtils();
 
     @Test
     public void capacityAndTypeTest() {

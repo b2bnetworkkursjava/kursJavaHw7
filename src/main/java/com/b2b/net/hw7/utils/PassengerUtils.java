@@ -12,8 +12,24 @@ public class PassengerUtils {
      * - wiek > 75 25% zniżki;
      * - student 50% zniżki;
      * - noOfFlights * 0,001 o ile nie przysługuje żadna z powyższych
+     * ########## podejrzewam, ze autor mial na mysli inna tresc np: sprawdz czy znizka zostala prawdlowo naliczona?
      */
     public boolean checkDiscount(Passenger passenger, Ticket ticket) {
-        return true;
-    }
+        boolean result;
+        if( (passenger.getAge()<3) && (ticket.getDiscount()==100) ) {
+            result=true;
+        } else if ((passenger.getAge()<18) &&(passenger.getAge()>=3) && (ticket.getDiscount()==30)) {
+            result=true;
+        } else if ((passenger.getAge()>75) && (ticket.getDiscount()==25)) {
+            result=true;
+        } else if ((passenger.isStudent()==true) && (ticket.getDiscount()==50)) {
+            result=true;
+        } else if (ticket.getDiscount()== passenger.getNoOfFlights()*0.001) {
+            result=true;
+        }
+        else {
+            result=false;
+        }
+        return result;
+            }
 }
