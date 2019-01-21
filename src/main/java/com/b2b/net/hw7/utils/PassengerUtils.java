@@ -14,6 +14,23 @@ public class PassengerUtils {
      * - noOfFlights * 0,001 o ile nie przysługuje żadna z powyższych
      */
     public boolean checkDiscount(Passenger passenger, Ticket ticket) {
-        return true;
+        int age = passenger.getAge();
+        boolean student = passenger.getStudent();
+        int noOfFlights = passenger.getNoOfFlights();
+        double discount = ticket.getDiscount();
+        boolean bool;
+        if (age < 3) {discount = 100;
+            bool = true;}
+        else if (age < 18 && age > 3) {discount = 30;
+            bool = true;}
+        else if (age > 75) {discount = 25;
+            bool = true;}
+        else if (student = true) {discount = 50;
+            bool = true;}
+        else if (noOfFlights != 0) {discount = noOfFlights * 0.001;
+            bool = true;}
+        else bool = false;
+        System.out.println(discount);
+        return bool;
     }
 }
