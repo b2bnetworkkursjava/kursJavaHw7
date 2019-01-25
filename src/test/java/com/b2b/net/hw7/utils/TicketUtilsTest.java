@@ -11,8 +11,8 @@ public class TicketUtilsTest {
      * ZAINICJUJ OBIEKTY WYKORZYSTUJAC KONSTRUKTORY UTWORZONE W KLASACH. PAMIETAJ O POPRAWNOSCI DANYCH INACZEJ TESTY NIE PRZEJDA.
      */
 
-    private Ticket ticket;
-    private TicketUtils ticketUtils;
+    private Ticket ticket = new Ticket(1777, 260, "premium", 0.025,17, true);
+    private TicketUtils ticketUtils = new TicketUtils();
 
     @Test
     public void checkClassTest() {

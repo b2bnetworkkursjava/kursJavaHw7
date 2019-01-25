@@ -14,6 +14,14 @@ public class PassengerUtils {
      * - noOfFlights * 0,001 o ile nie przysługuje żadna z powyższych
      */
     public boolean checkDiscount(Passenger passenger, Ticket ticket) {
-        return true;
+        if ((passenger.getAge() < 3 && ticket.getDiscount() == 1.0) ||
+                (passenger.getAge() > 3 && passenger.getAge() < 18 && ticket.getDiscount() == 0.3) ||
+                (passenger.getAge() > 75 && ticket.getDiscount() == 0.25 ) ||
+                (passenger.isStudent() && ticket.getDiscount() == 0.5) ||
+                (passenger.getNoOfFlights() > 0 && ticket.getDiscount() == passenger.getNoOfFlights()* 0.001)){
+            return true;
+        } else {
+            return false;
+        }
     }
 }
