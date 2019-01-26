@@ -12,7 +12,24 @@ public class TicketUtils {
      * - pierwsza klasa cena>600
      */
     public boolean checkClass(Ticket ticket) {
-        return true;
+        double price = ticket.getPrice();
+        String classType = ticket.getClassType();
+        boolean bool;
+        if (price < 250) {
+            classType = "ekonomiczna";
+            bool = true;
+        } else if (price < 400 && price > 250) {
+            classType = "premium";
+            bool = true;
+        } else if (price < 600 && price < 450) {
+            classType = "biznes";
+            bool = true;
+        } else if (price > 600) {
+            classType = "pierwsza";
+            bool = true;
+        } else bool = false;
+        System.out.println(classType);
+        return bool;
     }
 
     /**
@@ -20,6 +37,10 @@ public class TicketUtils {
      * - w klasie ekonomicznej nie ma posiłku, w pozostałych tak.
      */
     public boolean checkMeal(Ticket ticket) {
-        return true;
+        String classType = ticket.getClassType();
+        boolean bool;
+        if (classType.equals("ekonomiczna")) bool = false;
+        else bool = true;
+        return bool;
     }
 }
