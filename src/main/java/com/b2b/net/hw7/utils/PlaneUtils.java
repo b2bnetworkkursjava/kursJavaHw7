@@ -8,36 +8,89 @@ public class PlaneUtils {
 
     /**
      * 1. Sprawdź czy model samolotu jest odpowiedniego typu.
+     * /**
+     *      * możemy mieć mały, średni i duży typ samolotu
+     *      * junior, mid i senior moga pilotowac odpowiednio maly, sredni i duzy samolot
+     *      * i to dziala wstecz, czyli mid moze latac srednimi i malymi samolotami, a senior kazdym typem
+     *      * jezeli chodzi o pojemnosc i miejsca:
+     *      * pojemnosc:
+     *      * 5000 - maly
+     *      * 10000 - sredni
+     *      * 20000 - duzy
+     *      * miejsca:
+     *      * 200 - maly
+     *      * 350 - sredni
+     *      * 500 - duzy
+     *      * i mamy trzy modele:
+     *      * Boeing 737 jest maly
+     *      * Boeing 787 sredni
+     *      * Airbus A380 duzy
      */
     public boolean modelAndType(Plane plane) {
-        return true;
+        boolean result;
+        if ((plane.getType().equals("maly")&&plane.getModel().equals("Boeing 737"))||(plane.getType().equals("sredni")&&plane.getModel().equals("Boeing787"))
+    ||(plane.getType().equals("duzy"))&&plane.getModel().equals("Airbus A380")){
+            result=true;
+        }else{
+            result=false;
+        }
+        return result;
     }
 
     /**
      * 2. Sprawdź czy liczba miejsc jest zgodna z typem samolotu.
      */
     public boolean seatsAndType(Plane plane) {
-        return true;
+        boolean result;
+        if ((plane.getType().equals("maly")&&plane.getNoOfSeats()==200)||(plane.getType().equals("sredni")&&plane.getNoOfSeats()==350)||
+                (plane.getType().equals("duzy")&&plane.getNoOfSeats()==500)){
+            result=true;
+        }else{
+            result=false;
+        }
+        return result;
     }
 
     /**
      * 3. Sprawdź czy pojemność samolotu jest zgodna z typem.
      */
     public boolean capacityAndType(Plane plane) {
-        return true;
+        boolean result;
+        if ((plane.getType().equals("maly")&&plane.getCapacity()==5000)||(plane.getType().equals("sredni")&& plane.getCapacity()==10000)||
+                (plane.getType().equals("duzy")&&plane.getCapacity()==20000)){
+            result=true;
+        }else{
+            result=false;
+        }
+        return result;
     }
 
     /**
      * 4. Sprawdź czy uprawnienia pilota zezwalają na lot samolotem danego typu.
      */
     public boolean permissionsAndType(Plane plane, Pilot pilot) {
-        return true;
+        String pilotPermission = pilot.getPermissions();
+        String planeType= plane.getType();
+        boolean result;
+        if ((pilotPermission.equals("junior") && planeType.equals("mały")) || (pilotPermission.equals("mid") && (planeType.equals("mały") ||
+                planeType.equals("średni"))) || (pilotPermission.equals("senior") && (planeType.equals("mały") || planeType.equals("średni") || planeType.equals("duży")))){
+            result=true;
+        }else{
+            result=false;
+        }
+        return result;
     }
 
     /**
      * 5. Sprawdź czy miejsce na bilecie nie wykracza poza zakres miejsc w samolocie.
      */
     public boolean seats(Plane plane, Ticket ticket) {
-        return true;
+        boolean result;
+        if (plane.getNoOfSeats()>=ticket.getNoOfSeat()){
+            result=true;
+        }else{
+            result=false;
+        }
+        return result;
     }
 }
